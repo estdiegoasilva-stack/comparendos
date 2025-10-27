@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storytelling: Analítica de Datos</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #007BFF;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .card {
+            background: white;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(50% - 40px);
+            max-width: calc(50% - 40px);
+        }
+        .card h2 {
+            color: #007BFF;
+        }
+        .card p {
+            margin: 10px 0;
+        }
+        .graph-container {
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Storytelling: Analítica de Datos</h1>
+        <p>Dividido en cuatro etapas: descriptivo, diagnóstico, predictivo y prescriptivo.</p>
+    </header>
+
+    <div class="container">
+        <!-- Tarjeta: Análisis Descriptivo -->
+        <div class="card">
+            <h2>Análisis Descriptivo</h2>
+            <p>En esta etapa se presentan los datos generales sobre los comparendos de tránsito en Chía, incluyendo tendencias y patrones básicos.</p>
+            <div id="descriptive-graph-1" class="graph-container"></div>
+            <div id="descriptive-graph-2" class="graph-container"></div>
+        </div>
+
+        <!-- Tarjeta: Análisis Diagnóstico -->
+        <div class="card">
+            <h2>Análisis Diagnóstico</h2>
+            <p>Identifica las causas principales de los problemas de movilidad, analizando patrones y tendencias clave en los datos históricos.</p>
+            <div id="diagnostic-graph-1" class="graph-container"></div>
+            <div id="diagnostic-graph-2" class="graph-container"></div>
+        </div>
+
+        <!-- Tarjeta: Análisis Predictivo -->
+        <div class="card">
+            <h2>Análisis Predictivo</h2>
+            <p>Proyección de infracciones y problemas de movilidad en los próximos meses, basada en patrones históricos.</p>
+            <div id="predictive-graph-1" class="graph-container"></div>
+            <div id="predictive-graph-2" class="graph-container"></div>
+        </div>
+
+        <!-- Tarjeta: Análisis Prescriptivo -->
+        <div class="card">
+            <h2>Análisis Prescriptivo</h2>
+            <p>Recomendaciones basadas en el análisis prescriptivo para mejorar la movilidad en Chía.</p>
+            <div id="prescriptive-graph-1" class="graph-container"></div>
+            <div id="prescriptive-graph-2" class="graph-container"></div>
+        </div>
+    </div>
+
+    <script>
+        // Función para simular gráficos interactivos
+        function simulateGraph(container, title, xData, yData) {
+            Plotly.newPlot(container, [{
+                x: xData,
+                y: yData,
+                type: 'bar'
+            }], {
+                title: title,
+                xaxis: { title: 'Categoría' },
+                yaxis: { title: 'Valor' }
+            });
+        }
+
+        // Gráficos de ejemplo (puedes reemplazar con tus datos reales)
+        simulateGraph('descriptive-graph-1', 'Comparendos por Día', ['Lunes', 'Martes', 'Miércoles'], [120, 150, 200]);
+        simulateGraph('descriptive-graph-2', 'Infracciones por Tipo', ['Velocidad', 'Estacionamiento'], [300, 250]);
+
+        simulateGraph('diagnostic-graph-1', 'Zonas Críticas', ['Zona 1', 'Zona 2'], [400, 350]);
+        simulateGraph('diagnostic-graph-2', 'Horarios Críticos', ['Mañana', 'Tarde'], [500, 450]);
+
+        simulateGraph('predictive-graph-1', 'Proyección Mensual', ['Enero', 'Febrero'], [100, 120]);
+        simulateGraph('predictive-graph-2', 'Proyección por Zona', ['Zona 1', 'Zona 2'], [200, 220]);
+
+        simulateGraph('prescriptive-graph-1', 'Asignación de Agentes', ['Lunes', 'Martes'], [10, 12]);
+        simulateGraph('prescriptive-graph-2', 'Recomendaciones de Infraestructura', ['Zona 1', 'Zona 2'], [5, 8]);
+    </script>
+</body>
+</html>
